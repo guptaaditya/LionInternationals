@@ -8,12 +8,10 @@ const Users = (props) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    debugger
     props.actions.getUsers();
   },[])
 
   useEffect(() => {
-    debugger
     setUsers(props.users)
   },[props.users])
 
@@ -53,7 +51,7 @@ const Container = styled.div`
 `
 const Table = styled.table`
   border-collapse: collapse;
-  width: 60rem;
+  width: 100%;
   
   th {
     padding-top: 12px;

@@ -26,9 +26,9 @@ export function addUser(params) {
 
 export function deleteUser(params) {
   return dispatch => {
-    return request('deleteUser', params).then(user => dispatch({
+    return request('deleteUser', params).then(users => dispatch({
         type: 'GET_USERS', 
-        user
+        users
       })
     )
   }

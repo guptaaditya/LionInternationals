@@ -1,12 +1,14 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom"
-
 import Container from './components/container'
 import Users from './components/users'
+import Header from './components/header/'
+
 function App() {
   return (
   <Router>
     <Container>
+      <Route path="/" component={Header} />
       <div style={{padding: '0 20px'}}>
         <Switch>
           <Redirect exact from='/' to='/users' />

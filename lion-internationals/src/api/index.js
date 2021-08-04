@@ -22,7 +22,7 @@ function addUser(params) {
 //Deletes User by id and returns complete list of Users thereafter.
 function deleteUser(params) {
   data = data.filter(user => user.id !== params.id);
-  return getUsers();
+  return data
 }
 
 const methods = {
