@@ -1,5 +1,6 @@
 let initialState = {
     usersData: [],
+    groups: []
 }
 
 const reducers = (state = initialState, action) => {
@@ -12,9 +13,17 @@ const reducers = (state = initialState, action) => {
       newState = Object.assign({}, state, {users: action.users});
     break;
     case 'ADD_USER':
-      debugger
       newState = Object.assign({}, state, {users: [action.user, ...state.users]});
-    break;
+      break;
+    case 'ADD_GROUP':
+      newState = Object.assign({}, state, {groups: [action.group, ...state.groups]});
+      break;
+      case 'GET_GROUPS':
+        newState = Object.assign({}, state, {groups: action.groups});
+        break;
+      case 'DELETE_GROUP':
+        newState = Object.assign({}, state, {groups: action.groups});
+      break;
     default:
       newState = Object.assign({}, state);
   }

@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react'
 import {connect} from 'react-redux'
-import { getUsers } from '../../actions'
+import { getUsers, getGroups } from '../../actions'
 
 const Container = (props) => {
 
   useEffect(() => {
     props.getUsers();
+    props.getGroups();
   },[props])
 
   return (
@@ -17,7 +18,8 @@ const Container = (props) => {
 
 const mapDispatchToProps = (dispatch) => { 
   return {
-    getUsers: () => getUsers(dispatch)
+    getUsers: () => getUsers(dispatch),
+    getGroups: () => getGroups(dispatch)
   }
 }
 

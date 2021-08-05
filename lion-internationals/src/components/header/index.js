@@ -4,9 +4,10 @@ import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
 const MenuItems = [
-  {key: 1, href: `/users`, label: 'Users', exact: true, isActive: false},
-  {key: 2, href: `/groups`, label: 'Groups', isActive: false},
-  {key: 3, href: `/user/add`, label: 'Add user', exact: true, isActive: false},
+  {key: 1, href: `/users`, label: 'Users', exact: true},
+  {key: 2, href: `/groups`, label: 'Groups', exact: true},
+  {key: 3, href: `/user/add`, label: 'Add user', exact: true},
+  {key: 4, href: `/group/add`, label: 'Add group', exact: true},
 ]
 
 const Header = (props) => {
