@@ -4,12 +4,14 @@ import Container from './components/container'
 import Users from './components/users'
 import Header from './components/header/'
 import AddUser from './components/addUser'
+import { createBrowserHistory } from 'history'
+const history = createBrowserHistory()
 
 function App() {
   return (
   <Router>
     <Container>
-      <Route path="/" component={Header} />
+      <Route history={history} path="/" component={Header} />
       <div style={{padding: '0 20px'}}>
         <Switch>
           <Redirect exact from='/' to='/users' />

@@ -6,7 +6,7 @@ const Container = (props) => {
 
   useEffect(() => {
     props.getUsers();
-  },[])
+  },[props])
 
   return (
     <div className="container">

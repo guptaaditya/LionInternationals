@@ -30,16 +30,16 @@ const Header = (props) => {
 };
 
 const Nav = styled.div`
-    display: flex;
-    justify-content: space-evenly;
-    height: 3rem;
-    background: cornsilk;
+  display: flex;
+  justify-content: space-evenly;
+  height: 3rem;
+  background: cornsilk;
 
-    a {
-        text-decoration: none;
-        padding: 0.8em;
-        font-size: 1.1em;
-    }
+  a {
+    text-decoration: none;
+    padding: 0.8em;
+    font-size: 1.1em;
+  }
 `
 
 
