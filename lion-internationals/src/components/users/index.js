@@ -1,15 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import {connect} from 'react-redux'
-import { bindActionCreators } from 'redux'
-import { getUsers, deleteUser } from '../../actions'
+import { deleteUser } from '../../actions'
 import styled from 'styled-components'
 
 const Users = (props) => {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    props.actions.getUsers();
-  },[])
+  const [users, setUsers] = useState([])
 
   useEffect(() => {
     setUsers(props.users)
@@ -20,7 +15,6 @@ const Users = (props) => {
         <Table>
           <thead>
             <tr>
-              {/* <th className="actions" onClick={onAddUser}>+</th> */}
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
@@ -36,7 +30,7 @@ const Users = (props) => {
                   <td>{u.last_name}</td>
                   <td>{u.email}</td>
                   <td>{u.phone}</td>
-                  <td onClick={() => props.actions.deleteUser(u)}>Delete</td>
+                  <td onClick={() => props.deleteUser(u)}>Delete</td>
                 </tr>
               );
             })}
@@ -85,7 +79,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => { 
   return {
-    actions: bindActionCreators({ getUsers, deleteUser }, dispatch)
+    deleteUser: (user) => {
+      deleteUser(dispatch, user)
+    }
   }
 }
 

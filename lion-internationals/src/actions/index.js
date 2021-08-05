@@ -1,35 +1,31 @@
-import request from '../api';
+import usersData from '../data/index'
+let users = [...usersData];
 
-export function getUser(id) {
-  return request('getUser', id);
+export function getUser(dispatch, id) {
+   dispatch({
+    type: 'GET_USER',
+    id
+  })
 }
 
-export function getUsers() {
-  return dispatch => {
-    return request('getUsers').then(users => dispatch({
-        type: 'GET_USERS', 
-        users
-      })
-    )
-  }
+export function getUsers(dispatch) {
+  dispatch({
+    type: 'GET_USERS',
+    users
+  })
 }
 
-export function addUser(params) {
-  return dispatch => {
-    return request('addUser', params).then(user => dispatch({
-        type: 'GET_USERS', 
-        user
-      })
-    )
-  }
+export function addUser(dispatch, user) {
+  dispatch({
+    type: 'ADD_USER', 
+    user
+  })
 }
 
-export function deleteUser(params) {
-  return dispatch => {
-    return request('deleteUser', params).then(users => dispatch({
-        type: 'GET_USERS', 
-        users
-      })
-    )
-  }
+export function deleteUser(dispatch, params) {
+  users = users.filter(user => user.id !== params.id);
+  dispatch({
+    type: 'DELETE_USER',
+    users
+  })
 }

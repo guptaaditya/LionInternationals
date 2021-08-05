@@ -1,13 +1,24 @@
-import React from 'react'
+import React, {useEffect} from 'react'
+import {connect} from 'react-redux'
+import { getUsers } from '../../actions'
 
-export class Container extends React.Component {
-  render(){
-    return (
-        <div className="container">
-            {this.props.children}
-        </div>
-    )
+const Container = (props) => {
+
+  useEffect(() => {
+    props.getUsers();
+  },[])
+
+  return (
+    <div className="container">
+      {props.children}
+    </div>
+  )
+}
+
+const mapDispatchToProps = (dispatch) => { 
+  return {
+    getUsers: () => getUsers(dispatch)
   }
-};
+}
 
-export default Container;
+export default connect(null, mapDispatchToProps)(Container);

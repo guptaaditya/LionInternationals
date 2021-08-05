@@ -11,6 +11,10 @@ const reducers = (state = initialState, action) => {
     case 'DELETE_USER':
       newState = Object.assign({}, state, {users: action.users});
     break;
+    case 'ADD_USER':
+      debugger
+      newState = Object.assign({}, state, {users: [action.user, ...state.users]});
+    break;
     default:
       newState = Object.assign({}, state);
   }
